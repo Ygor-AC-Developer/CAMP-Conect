@@ -1,0 +1,253 @@
+:root {
+  --laranja: #F28C28;
+  --azul: #1C3F60;
+  --branco: #FFFFFF;
+  --cinza-claro: #F5F5F5;
+  --preto: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: var(--cinza-claro);
+  color: var(--azul);
+  line-height: 1.6;
+}
+
+header {
+  background-color: var(--branco);
+  text-align: left;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  max-width: 120px;
+  height: auto;
+}
+
+.menu-toggle {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 28px;
+  color: var(--preto);
+  cursor: pointer;
+  display: none;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.menu a {
+  color: var(--preto);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.menu a:hover {
+  color: var(--laranja);
+}
+
+
+section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--laranja);
+  margin-bottom: 20px;
+}
+
+section h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  text-align: center;
+}
+
+section p {
+  font-size: 20px;
+  text-align: justify;
+}
+
+.placeholder {
+  background-color: var(--branco);
+  border-left: 4px solid var(--laranja);
+  padding: 20px;
+  color: #555;
+}
+
+.subtitulo-centralizado {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  color: var(--azul);
+}
+
+.bloco-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--branco);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.bloco-horizontal img {
+  width: 25%;
+  max-width: 300px;
+  border-radius: 6px;
+}
+
+.bloco-horizontal p {
+  width: 60%;
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.bloco-horizontal.invertido {
+  flex-direction: row-reverse;
+}
+
+footer {
+  background-color: var(--azul);
+  color: var(--branco);
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px 20px;
+  text-align: left;
+}
+
+.footer-col h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--laranja);
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.footer-lin h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--laranja);
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.footer-col p {
+  font-size: 14px;
+  margin: 5px 0;
+  text-align: justify;
+}
+
+.footer-lin p {
+  font-size: 14px;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.9rem;
+  color: var(--branco);
+}
+    
+
+footer a {
+  color: var(--branco);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--laranja);
+}
+
+
+
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    color: var(--preto);
+    cursor: pointer;
+    z-index: 1100;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 40vw; /* 2/5 da largura da tela */
+    background-color: var(--azul);
+    padding: 80px 20px 20px;
+    gap: 20px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .menu.active {
+    transform: translateX(0);
+  }
+
+  .menu a {
+    font-size: 18px;
+    color: var(--branco);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bloco-horizontal,
+  .bloco-horizontal.invertido {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .bloco-horizontal img,
+  .bloco-horizontal p {
+    width: 50%;
+  }
+}
